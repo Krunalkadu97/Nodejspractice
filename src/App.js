@@ -1,19 +1,21 @@
 import {useState} from 'react';
-import {Alert,Button,ButtonGroup,ButtonToolbar} from 'reactstrap';
+import {Navbar,NavbarBrand,Alert,Button,ButtonGroup,ButtonToolbar} from 'reactstrap';
+import Menu from './components/MenuComponent';
 import './App.css';
+
 
 function App() {
   const [visible , setVisible] = useState(true);
   const onDismiss = () => setVisible(false);
   return (
     <div className="App">
-      <Alert color='primary' isOpen={visible} toggle={onDismiss}>Welcome To ReactJs Home</Alert>
-      <ButtonToolbar>
-          <ButtonGroup>
-             <Button color='primary'>Home</Button>
-             <Button color='danger'>Exit</Button>
-          </ButtonGroup>
-      </ButtonToolbar>
+      <Navbar dark color='danger'>
+      <div className='container'>
+        <NavbarBrand herf='#'>Home</NavbarBrand>
+      </div>
+        
+      </Navbar>
+      <Menu />
     </div>
   );
 }

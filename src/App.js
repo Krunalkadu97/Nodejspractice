@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import {useState} from 'react';
+import {Alert,Button,ButtonGroup,ButtonToolbar} from 'reactstrap';
 import './App.css';
 
 function App() {
+  const [visible , setVisible] = useState(true);
+  const onDismiss = () => setVisible(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Alert color='primary' isOpen={visible} toggle={onDismiss}>Welcome To ReactJs Home</Alert>
+      <ButtonToolbar>
+          <ButtonGroup>
+             <Button color='primary'>Home</Button>
+             <Button color='danger'>Exit</Button>
+          </ButtonGroup>
+      </ButtonToolbar>
     </div>
   );
 }
